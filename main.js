@@ -7,11 +7,11 @@ const app = Vue.createApp({
     };
   },*/
   components: {
-    
+    test
   },
   template: `
   <div>
-  asdjkasjd
+  <test />
   <div/>`
 });
 
