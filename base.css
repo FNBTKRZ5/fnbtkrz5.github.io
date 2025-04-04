@@ -1,0 +1,17 @@
+:root {
+  --AE-Fn: #000000;
+  --AE-Fs: #FFE100;
+  --AE-B: #0000FF;
+  --AE-T: #00FFFF;
+  --AE-K: #15C96F;
+  --AE-R: #C58C53;
+  --AE-Z: #FF0000;
+
+  --primary-color: #bdbdbd;
+  --secondary-color: #555555;
+  --accent-color: var(--AE-B);
+}
+
+body {
+  margin:0; overflow:hidden;
+}
