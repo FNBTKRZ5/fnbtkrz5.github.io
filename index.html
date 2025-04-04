@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>FNBTKRZ's Home</title>
+    <link rel="stylesheet" href="base.css">
     <script type="importmap">
       {
         "imports": {
@@ -12,8 +13,15 @@
     </script>
   </head>
   <body>
-    <canvas id="scene" player-camera-islocked></canvas>
+    <canvas id="sceneContainer" pointer-isLocked></canvas>
+    <div id="camera-point" style="z-index:10; position:absolute; display:block; border-radius:100%; background:#fff; border:#8f8f8f 1px solid; width:10px;height:10px;"></div>
 
     <script type="module" src="core.js"></script>
+    <script>
+      /* External canvas's elements */
+      const ipointer = document.getElementById("camera-point").getBoundingClientRect();
+      document.getElementById("camera-point").style.left=`${(window.innerWidth/2)-(ipointer.width/2)}px`;
+      document.getElementById("camera-point").style.top=`${(window.innerHeight/2)-(ipointer.height/2)}px`;
+    </script>
   </body>
 </html>
