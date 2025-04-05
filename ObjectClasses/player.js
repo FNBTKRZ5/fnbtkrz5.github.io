@@ -22,6 +22,8 @@ export default class player {
     if (document.hasFocus()) {
       this.cameraControls.lock();
       this.isCursorLocked = this.cameraControls.isLocked;
+      document.getElementById("notlocked-pointer-info").setAttribute("hidden", "");
+      document.getElementById("camera-point").removeAttribute("hidden");
     } else {
       document.getElementById("notlocked-pointer-info").removeAttribute("hidden");
       document.getElementById("camera-point").setAttribute("hidden", "");
