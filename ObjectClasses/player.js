@@ -10,13 +10,22 @@ export default class player {
     this.cameraControls.addEventListener("lock", ()=>{
       this.isCursorLocked = true;
       this.canvas.setAttribute("pointer-isLocked", "");
+      document.getElementById("notlocked-pointer-info").setAttribute("hidden",  "");
+      document.getElementById("camera-point").removeAttribute("hidden");
     });
     this.cameraControls.addEventListener("unlock", ()=>{
       this.isCursorLocked = false;
       this.canvas.removeAttribute("pointer-isLocked");
+      document.getElementById("notlocked-pointer-info").removeAttribute("hidden");
+      document.getElementById("camera-point").setAttribute("hidden", "");
     });
-    this.cameraControls.lock();
-    this.isCursorLocked = this.cameraControls.isLocked;
+    if (document.hasFocus()) {
+      this.cameraControls.lock();
+      this.isCursorLocked = this.cameraControls.isLocked;
+    } else {
+      document.getElementById("notlocked-pointer-info").removeAttribute("hidden");
+      document.getElementById("camera-point").setAttribute("hidden", "");
+    }
 
     this.movementSpd = 1.25;
     this.moveDirection = {fwd:0, r:0};
@@ -72,7 +81,7 @@ export default class player {
   }
 
   update(delta) {
-    //if (!this.isCursorLocked) return;
+    if (!this.isCursorLocked) return;
 
     const MovementSpeed = this.movementSpd * delta;
     if (this.moveDirection.fwd != 0) {
